@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 @NoArgsConstructor
@@ -13,7 +14,8 @@ import org.springframework.data.relational.core.mapping.Table;
 @ToString
 @Table("user_task")
 public class UserTask {
-    private Long id;
+    @Id
+    private Integer id;
     private Long userId;
     private Long taskId;
     private Boolean status;

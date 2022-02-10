@@ -14,7 +14,7 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table("tasks")
 public class Task {
     @Id
-    private Long id;
+    private Integer id;
     private String taskName;
     private String taskDescription;
     private String taskInputParameter;
