@@ -9,8 +9,8 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @ToString
+@NoArgsConstructor
 @Table("tasks")
 public class Task {
     @Id
@@ -18,5 +18,12 @@ public class Task {
     private String taskName;
     private String taskDescription;
     private String taskInputParameter;
-    private  String taskOutputParameter;
+    private String taskOutputParameter;
+
+    public Task(String taskName, String taskDescription, String taskInputParameter, String taskOutputParameter) {
+        this.taskName = taskName;
+        this.taskDescription = taskDescription;
+        this.taskInputParameter = taskInputParameter;
+        this.taskOutputParameter = taskOutputParameter;
+    }
 }

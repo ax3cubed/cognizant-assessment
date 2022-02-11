@@ -1,10 +1,9 @@
 logging:
   level:
     web: DEBUG
-jdoodle:
-  clientId: '59f7bf2496f6f86ce6064f65b5caa1ec'
-  secret: 'bc39a60cc1336cfbe8a6e65087f0c0cf7cb95839414ba2d2cfa5c104310d452d'
 spring:
+  application:
+    name: 'task-service'
   profiles:
     active: test
 server:
@@ -12,8 +11,6 @@ server:
 
 ---
 spring:
-  application:
-    name: task-service
   r2dbc:
     url: r2dbc:postgresql://localhost:5432/test
     username: postgres

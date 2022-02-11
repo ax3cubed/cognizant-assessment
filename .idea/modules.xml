@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/cognizant-assessment/cognizant-assessment.iml" filepath="$PROJECT_DIR$/cognizant-assessment/cognizant-assessment.iml" />
-      <module fileurl="file://$PROJECT_DIR$/cognizant-assessment-eureka-server/cognizant-assessment-eureka-server.iml" filepath="$PROJECT_DIR$/cognizant-assessment-eureka-server/cognizant-assessment-eureka-server.iml" />
     </modules>
   </component>
 </project>
