@@ -1,5 +1,6 @@
 package com.adeola.cognizantassessment.controller;
 
+import com.adeola.cognizantassessment.dto.TaskMini;
 import com.adeola.cognizantassessment.model.Task;
 import com.adeola.cognizantassessment.service.TaskService;
 import io.swagger.models.auth.In;
@@ -10,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@CrossOrigin(value = { "http://localhost:3000" },
+        maxAge = 900
+)
 @RestController
 @Slf4j
 @RequestMapping("/task")
@@ -21,7 +25,7 @@ public class TaskController {
 }
 
     @GetMapping
-    public Flux<Task> getAllTasks() {
+    public Flux<TaskMini> getAllTasks() {
         return taskService.getAllTasks();
     }
 

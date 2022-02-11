@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 
 @Slf4j
 @RestController
-@RequestMapping("/userTasks")
+@RequestMapping("/userTask")
 public class UserTaskController {
     private Environment env;
 
@@ -50,7 +50,7 @@ public class UserTaskController {
         return userTaskService.getAllTaskByUserId(userId);
     }
     @GetMapping("{email}")
-    public Flux<UserTask> getUserTaskByEmail(String email) {
+    public Flux<UserTask> getUserTaskByEmail(@PathVariable String email) {
         Mono<User> user = userService.findUserByEmail(email).map(user1 -> {
             return user1;
         }).switchIfEmpty(Mono.error(new Exception("User not found")));

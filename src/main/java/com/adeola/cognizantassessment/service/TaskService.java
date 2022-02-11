@@ -1,6 +1,7 @@
 package com.adeola.cognizantassessment.service;
 
 
+import com.adeola.cognizantassessment.dto.TaskMini;
 import com.adeola.cognizantassessment.model.Task;
 import com.adeola.cognizantassessment.repository.TaskRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -22,9 +23,13 @@ public class TaskService {
         log.info("Saving task: {}", task);
         return taskRepository.save(task);
     }
-    public Flux<Task> getAllTasks() {
+    public Flux<TaskMini> getAllTasks() {
         log.info("Getting all tasks");
-        return taskRepository.findAll();
+        return taskRepository.findAll().flatMap(
+                task -> Mono.just(TaskMini.builder().taskName(task.getTaskName()).id(task.getId()).
+                        taskDescription(task.getTaskDescription()).
+                        taskInputParameter(task.getTaskInputParameter()).build())
+        );
     }
     public Mono<Task> getTaskById(Integer id) {
         log.info("Getting task by id: {}", id);
