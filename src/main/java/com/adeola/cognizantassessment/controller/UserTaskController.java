@@ -40,7 +40,7 @@ public class UserTaskController {
         return userTaskService.getAllUserTasks();
     }
 
-    @GetMapping("/topThree")
+    @GetMapping("/top3")
     public Flux<UserTask> getTopThreeTasks() {
         return userTaskService.getTopThreeTasks();
     }
@@ -48,6 +48,13 @@ public class UserTaskController {
     @GetMapping("/{userId}")
     public Flux<UserTask> getUserTasksByUserId(@PathVariable Integer userId) {
         return userTaskService.getAllTaskByUserId(userId);
+    }
+    @GetMapping("{email}")
+    public Flux<UserTask> getUserTaskByEmail(String email) {
+        Mono<User> user = userService.findUserByEmail(email).map(user1 -> {
+            return user1;
+        }).switchIfEmpty(Mono.error(new Exception("User not found")));
+        return userTaskService.getAllTaskByUserId(user.block().getId());
     }
 
     @PostMapping
