@@ -41,7 +41,7 @@ public class UserTaskController {
         return userTaskService.getTopThreeTasks();
     }
 
-    @GetMapping("/userTasks/{userId}")
+    @GetMapping("/{userId}")
     public Flux<UserTask> getUserTasksByUserId(@PathVariable Integer userId) {
         return userTaskService.getAllTaskByUserId(userId);
     }
