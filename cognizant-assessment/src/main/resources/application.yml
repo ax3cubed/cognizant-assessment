@@ -1,3 +1,6 @@
+jdoodle:
+  clientId: '59f7bf2496f6f86ce6064f65b5caa1ec'
+  clientSecret: 'bc39a60cc1336cfbe8a6e65087f0c0cf7cb95839414ba2d2cfa5c104310d452d'
 logging:
   level:
     web: DEBUG
@@ -12,7 +15,7 @@ server:
 ---
 spring:
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/test
+    url: r2dbc:postgresql://localhost:5432/task
     username: postgres
     password: postgres
   config:
@@ -24,7 +27,7 @@ logging:
 ---
 spring:
   r2dbc:
-    url: r2dbc:h2:mem:///test?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: r2dbc:h2:mem:///task?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     name: sa
     password:
   config:
@@ -33,7 +36,7 @@ spring:
 ---
 spring:
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/test
+    url: r2dbc:postgresql://localhost:5432/task
     username: postgres
     password: postgres
   logging:

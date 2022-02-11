@@ -1,10 +1,7 @@
 package com.adeola.cognizantassessment.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -13,11 +10,12 @@ import org.springframework.data.relational.core.mapping.Table;
 @Data
 @ToString
 @Table("user_task")
+@Builder
 public class UserTask {
     @Id
     private Integer id;
-    private Long userId;
-    private Long taskId;
+    private Integer userId;
+    private Integer taskId;
     private Boolean status;
 }
 
