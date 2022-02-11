@@ -1,6 +1,0 @@
-server:
-  port: 8765
-
-eureka:
-  client:
-    registerWithEureka: false
